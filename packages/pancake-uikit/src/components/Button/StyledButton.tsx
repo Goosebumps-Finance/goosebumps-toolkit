@@ -41,6 +41,32 @@ const getHoverStyles = ({variant}: BaseButtonProps) => {
       transition: all ease 0.5s;
       color: white;
 
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #04c0d7;
+        z-index: -1;
+        transform: scaleX(0);
+        transition: all ease 0.5s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #04c0d7;
+        z-index: -1;
+        transform: scaleY(0);
+        transition: all ease 0.5s;
+      }
+
       &:hover {
         margin: 5px;
         border-color: #04c0d7;

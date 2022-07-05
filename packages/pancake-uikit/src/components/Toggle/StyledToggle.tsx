@@ -38,13 +38,14 @@ const getScale =
   };
 
 export const Handle = styled.div<HandleProps>`
-  background-color: ${({ theme }) => theme.toggle.handleBackground};
+  // background-color: ${({ theme }) => theme.toggle.handleBackground};
+  background-color: white;
   border-radius: 50%;
   cursor: pointer;
   height: ${getScale("handleHeight")};
   left: ${getScale("handleLeft")};
   position: absolute;
-  top: ${getScale("handleTop")};
+  // top: ${getScale("handleTop")};
   transition: left 200ms ease-in;
   width: ${getScale("handleWidth")};
   z-index: 1;
@@ -60,22 +61,24 @@ export const Input = styled.input<InputProps>`
 
   &:checked + ${Handle} {
     left: ${getScale("checkedLeft")};
+    background-color: rgb(81, 255, 161);
   }
 
   &:focus + ${Handle} {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
+    // box-shadow: ${({ theme }) => theme.shadows.focus};
   }
 
   &:hover + ${Handle}:not(:disabled):not(:checked) {
-    box-shadow: ${({ theme }) => theme.shadows.focus};
+    // box-shadow: ${({ theme }) => theme.shadows.focus};
   }
 `;
 
 const StyledToggle = styled.div<StyleToggleProps>`
   align-items: center;
-  background-color: ${({ theme, $checked, $checkedColor, $defaultColor }) =>
-    theme.colors[$checked ? $checkedColor : $defaultColor]};
+  background-color: ${({ theme, $checked, $checkedColor, $defaultColor }) => $checked ? $checkedColor : $defaultColor};
+    // theme.colors[$checked ? $checkedColor : $defaultColor]};
   border-radius: 24px;
+  border: 1px solid #c4c4c4;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   cursor: pointer;
   display: inline-flex;
