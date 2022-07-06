@@ -56,7 +56,7 @@ export const Icons: React.FC = () => {
       <InputGroup startIcon={<Search width="32px" />} endIcon={<StarFill width="32px" />} mb="24px" scale="lg">
         <Input type="text" value="Input Group" />
       </InputGroup>
-      <InputGroup endIcon={<Search width="24px"/>} startItem={<select><option value="1">apple</option></select>}>
+      <InputGroup endIcon={<Search width="24px"/>} startItem={<select><option value="1">apple</option></select>} style={{border: "1px solid white"}}>
         <Input type="text" value="Enter token or wallet address..." />
       </InputGroup>
     </Box>

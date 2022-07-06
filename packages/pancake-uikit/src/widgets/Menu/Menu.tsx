@@ -148,7 +148,7 @@ const Menu: React.FC<NavProps> = ({
               paddingLeft: "30px",
               borderLeft: "1px solid #2d3551"
             }}>
-              <InputGroup startItem={searchItem} endIcon={<Search width="24px"/>}>
+              <InputGroup startItem={searchItem} endIcon={<Search width="24px"/>} style={{border: "1px solid #52555c"}}>
                 <Input type="text" value="Enter token or wallet address" />
               </InputGroup>
             </div>

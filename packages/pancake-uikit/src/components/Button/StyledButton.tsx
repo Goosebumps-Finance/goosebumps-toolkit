@@ -38,8 +38,12 @@ const getHoverStyles = ({variant}: BaseButtonProps) => {
     return `
       border-radius: 50px;
       padding: 15px 30px;
+      -webkit-transition: all ease 0.5s;
       transition: all ease 0.5s;
       color: white;
+      z-index: 1;
+      overflow: hidden;
+      position: relative;
 
       &::before {
         content: "";
@@ -50,7 +54,9 @@ const getHoverStyles = ({variant}: BaseButtonProps) => {
         height: 100%;
         background-color: #04c0d7;
         z-index: -1;
+        -webkit-transform: scaleX(0);
         transform: scaleX(0);
+        -webkit-transition: all ease 0.5s;
         transition: all ease 0.5s;
       }
 
@@ -63,14 +69,24 @@ const getHoverStyles = ({variant}: BaseButtonProps) => {
         height: 100%;
         background-color: #04c0d7;
         z-index: -1;
+        -webkit-transform: scaleY(0);
         transform: scaleY(0);
+        -webkit-transition: all ease 0.5s;
         transition: all ease 0.5s;
       }
 
       &:hover {
-        margin: 5px;
         border-color: #04c0d7;
-        padding: 15px 20px;
+      }
+      
+      &:hover::before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+
+      &:hover::after {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
       }
     `
   }
@@ -104,7 +120,7 @@ const StyledButton = styled.button<BaseButtonProps>`
   transition: background-color 0.2s, opacity 0.2s;
 
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
-    opacity: 0.65;
+    // opacity: 0.65;
   }
 
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {

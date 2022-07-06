@@ -26,7 +26,7 @@ const StyledInputGroup = styled(Box)<{ scale: Scales; hasStartIcon: boolean; has
   padding-right: ${({ hasEndIcon, scale }) => getPadding(scale, hasEndIcon)};
   background: transparent;
   border-radius: 16px;
-  border: 1px solid #52555c;
+  // border: 1px solid #52555c;
   ${Input} {
     margin: auto;
     border: none;
