@@ -25,9 +25,11 @@ export const links: MenuItemsType[] = [
     items: [
       {
         label: "Swap",
+        href:"/test"
       },
       {
-        label: "Liquidity"
+        label: "Liquidity",
+        href:"/ttt"
       }
     ]
   },

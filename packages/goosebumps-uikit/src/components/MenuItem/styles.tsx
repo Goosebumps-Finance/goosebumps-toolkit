@@ -8,13 +8,14 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
     $isActive &&
     $variant === "subMenu" &&
     `
-      &:after{
+      &::after{
         content: "";
         position: absolute;
         bottom: 0;
         height: 4px;
         width: 100%;
-        background-color: ${theme.colors.primary};
+        // background-color: ${theme.colors.primary};
+        color: white;
         border-radius: 2px 2px 0 0;
       }
     `};
@@ -25,14 +26,14 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   display: flex;
   align-items: center;
 
-  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
+  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.textSubtle : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
-
+  
   ${({ $statusColor, theme }) =>
     $statusColor &&
     `
-    &:after {
+    &::after {
       content: "";
       border-radius: 100%;
       background: ${theme.colors[$statusColor]};
@@ -53,10 +54,43 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
     height: 42px;
   `}
 
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: 0px;
+    width: 0px;
+    height: 2px;
+    background: #fff;
+    visibility: hidden;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+  }
+
+  ${({$isActive}) => 
+    $isActive &&
+    `
+    &::before{
+      left: 0px;
+      opacity: 1;
+      width: 100%;
+      visibility: visible;
+    }
+    `
+  }
+
   &:hover {
-    background: ${({ theme }) => theme.colors.tertiary};
+    color: #fff;
+    // background: ${({ theme }) => theme.colors.tertiary};
     // ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
-    border-bottom: 2px solid white;
+    // border-bottom: 2px solid white;
+    &::before {
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
   }
 `;
 

@@ -34,7 +34,53 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
 };
 
 const getHoverStyles = ({variant}: BaseButtonProps) => {
-  if (variant === "secondary" || variant === "primary") {
+  if (variant === "primary") {
+    return `
+      border-radius: 50px;
+      padding: 15px 30px;
+      -webkit-transition: all ease 0.5s;
+      transition: all ease 0.5s;
+      color: white;
+      z-index: 1;
+      overflow: hidden;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #04c0d7;
+        z-index: -1;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #04c0d7;
+        z-index: -1;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transition: all ease 0.5s;
+        transition: all ease 0.5s;
+      }
+
+      &:hover {
+        border-color: #04c0d7;
+      }
+    `
+  }
+  if (variant === "secondary") {
     return `
       border-radius: 50px;
       padding: 15px 30px;

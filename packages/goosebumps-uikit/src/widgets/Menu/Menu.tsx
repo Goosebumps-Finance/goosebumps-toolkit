@@ -128,11 +128,6 @@ const Menu: React.FC<NavProps> = ({
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
 
-  console.log("Menu homeLink = ", homeLink);
-  console.log("Menu subLinks = ", subLinks);
-  console.log("Menu activeItem = ", activeItem);
-  console.log("Menu activeSubItem = ", activeSubItem);
-
   return (
     <Wrapper>
       <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
