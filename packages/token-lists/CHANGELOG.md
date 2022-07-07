@@ -1,5 +1,0 @@
-# Change Log
-
-### Features
-
-### Bug Fixes
