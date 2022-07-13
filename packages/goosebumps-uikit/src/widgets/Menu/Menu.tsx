@@ -71,6 +71,8 @@ const Menu: React.FC<NavProps> = ({
   banner,
   globalMenu,
   searchItem,
+  searchKey,
+  setSearchKey,
   isDark,
   toggleTheme,
   currentLang,
@@ -144,7 +146,7 @@ const Menu: React.FC<NavProps> = ({
               borderLeft: "1px solid #2d3551"
             }}>
               <InputGroup startItem={searchItem} endIcon={<Search width="24px"/>} style={{border: "1px solid #52555c"}}>
-                <Input type="text" value="Enter token or wallet address" />
+                <Input type="text" placeholder="Enter token or wallet address" value={searchKey} onChange={setSearchKey}/>
               </InputGroup>
             </div>
             {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="25px"/>}

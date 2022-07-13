@@ -20,6 +20,8 @@ export interface NavProps {
   banner?: ReactElement;
   globalMenu?: ReactElement;
   searchItem?: ReactElement;
+  searchKey?: string;
+  setSearchKey?: any;
   links: Array<MenuItemsType>;
   subLinks: Array<SubMenuItemsType>;
   footerLinks: Array<FooterLinkType>;
