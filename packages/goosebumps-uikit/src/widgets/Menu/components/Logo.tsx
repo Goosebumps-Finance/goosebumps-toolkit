@@ -17,8 +17,9 @@ const blink = keyframes`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  min-width: 160px;
   .mobile-icon {
-    width: 32px;
+    width: 120px;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: none;
     }
@@ -55,11 +56,11 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
   return (
     <Flex style={{marginLeft: "10px"}}>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} aria-label="Pancake home page">
+        <StyledLink as="a" href={href} aria-label="Goosebumps home page">
           {innerLogo}
         </StyledLink>
       ) : (
-        <StyledLink to={href} aria-label="Pancake home page">
+        <StyledLink to={href} aria-label="Goosebumps home page">
           {innerLogo}
         </StyledLink>
       )}

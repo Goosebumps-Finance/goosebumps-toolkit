@@ -24,10 +24,11 @@ const Wrapper = styled.div`
 
 const StyledNav = styled.nav`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: right;
   width: 100%;
-  height: ${MENU_HEIGHT}px;
+  height: 120px;
   background: transparent;
   // border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   border-bottom: 1px solid #1e4150;
@@ -35,7 +36,22 @@ const StyledNav = styled.nav`
 
   // padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 16px;
+
+  ${({theme}) => theme.mediaQueries.sm} {
+    flex-direction: row;
+    align-items: center;
+    height: 95px;
+  }
 `;
+
+const LogoSearchContainer = styled(Flex)`
+  padding-top: 15px;
+  ${({theme}) => theme.mediaQueries.sm} {
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+`
 
 const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
   position: fixed;
@@ -66,6 +82,25 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   max-width: 100%;
 `;
 
+const SearchContainer = styled.div`
+  display: flex;
+  width: 80%;
+  align-items: center;
+  margin-left: 0px;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-left: 1px solid #2d3551;
+  ${({theme}) => theme.mediaQueries.md} {
+    margin-left: 30px;
+    padding-right: 10px;
+  }
+`
+
+const SearchGroup = styled(InputGroup) `
+  border: 1px solid #52555c;
+  min-width: 200px;
+`
+
 const Menu: React.FC<NavProps> = ({
   userMenu,
   banner,
@@ -87,11 +122,11 @@ const Menu: React.FC<NavProps> = ({
   buyCakeLabel,
   children,
 }) => {
-  const { isMobile } = useMatchBreakpoints();
+  const { isMobile, isTablet } = useMatchBreakpoints();
   const [showMenu, setShowMenu] = useState(true);
   const refPrevOffset = useRef(typeof window === "undefined" ? 0 : window.pageYOffset);
 
-  const topBannerHeight = isMobile ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
+  const topBannerHeight = isMobile || isTablet ? TOP_BANNER_HEIGHT_MOBILE : TOP_BANNER_HEIGHT;
 
   const totalTopMenuHeight = banner ? MENU_HEIGHT + topBannerHeight : MENU_HEIGHT;
 
@@ -135,22 +170,15 @@ const Menu: React.FC<NavProps> = ({
       <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
         {/* {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>} */}
         <StyledNav>
-          <Flex flex={8}>
+          <LogoSearchContainer flex={8}>
             <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
-            <div style={{
-              display: 'flex',
-              width: "80%",
-              alignItems: "center",
-              marginLeft: "30px",
-              paddingLeft: "30px",
-              borderLeft: "1px solid #2d3551"
-            }}>
-              <InputGroup startItem={searchItem} endIcon={<Search width="24px"/>} style={{border: "1px solid #52555c"}}>
+            <SearchContainer>
+              <SearchGroup startItem={searchItem} endIcon={<Search width="24px"/>}>
                 <Input type="text" placeholder="Enter token or wallet address" value={searchKey} onChange={setSearchKey}/>
-              </InputGroup>
-            </div>
-            {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="25px"/>}
-          </Flex>
+              </SearchGroup>
+            </SearchContainer>
+            {(!isMobile && !isTablet) && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="25px"/>}
+          </LogoSearchContainer>
           <Flex alignItems="center" height="100%" flex={2} justifyContent="end">
             {/* {!isMobile && (
               <Box mr="12px">
@@ -202,7 +230,7 @@ const Menu: React.FC<NavProps> = ({
           />
         </Inner>
       </BodyWrapper>
-      {isMobile && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}
+      {(isMobile || isTablet) && <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}
     </Wrapper>
   );
 };

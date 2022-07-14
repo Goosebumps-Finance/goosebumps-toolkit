@@ -23,7 +23,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ items = [], activeItem = "", acti
                 items={menuItems}
                 isBottomNav
                 activeItem={activeSubItem}
-                showItemsOnMobile={showItemsOnMobile}
+                showItemsOnMobile={false}
                 setMenuOpenByIndex={setMenuOpenByIndex}
                 index={index}
               >
@@ -34,7 +34,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ items = [], activeItem = "", acti
                       isActive={href === activeItem}
                       label={label}
                       iconName={icon}
-                      showItemsOnMobile={showItemsOnMobile}
+                      showItemsOnMobile={false}
                     />
                   </NotificationDot>
                 </Box>
