@@ -83,9 +83,10 @@ const ConnectModal: React.FC<Props> = ({ login, onDismiss = () => null, displayC
             href="https://docs.goosebumps.finance/get-started/connection-guide"
             variant="subtle"
             width="100%"
+            color="#27262c"
             {...getExternalLinkProps()}
           >
-            {t("Learn How to Connect")}
+            <span style={{color:"#27262c"}}>{t("Learn How to Connect")}</span>
           </Button>
         </Box>
       </ModalBody>

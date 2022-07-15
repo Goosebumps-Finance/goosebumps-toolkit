@@ -28,7 +28,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: right;
   width: 100%;
-  height: 120px;
+  height: 130px;
   background: transparent;
   // border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   border-bottom: 1px solid #1e4150;
@@ -54,13 +54,17 @@ const LogoSearchContainer = styled(Flex)`
 `
 
 const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
-  position: fixed;
+  position: relative;
   top: ${({ showMenu, height }) => (showMenu ? 0 : `-${height}px`)};
   left: 0;
   transition: top 0.2s;
-  height: ${({ height }) => `${height}px`};
+  // height: ${({ height }) => `${height}px`};
+  height: 130px;
   width: 100%;
   z-index: 20;
+  ${({theme}) => theme.mediaQueries.sm} {
+    height: 95px;
+  }
 `;
 
 const TopBannerContainer = styled.div<{ height: number }>`
@@ -201,12 +205,11 @@ const Menu: React.FC<NavProps> = ({
       </FixedContainer>
       {subLinks && (
         <Flex justifyContent="space-around">
-          <SubMenuItems items={subLinksWithoutMobile} mt={`${totalTopMenuHeight + 1}px`} activeItem={activeSubItem} />
+          <SubMenuItems items={subLinksWithoutMobile} activeItem={activeSubItem} />
 
           {subLinksMobileOnly?.length > 0 && (
             <SubMenuItems
               items={subLinksMobileOnly}
-              mt={`${totalTopMenuHeight + 1}px`}
               activeItem={activeSubItem}
               isMobileOnly
             />

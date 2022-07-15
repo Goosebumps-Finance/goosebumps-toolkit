@@ -136,6 +136,17 @@ const getHoverStyles = ({variant}: BaseButtonProps) => {
       }
     `
   }
+  if(variant === "tertiary") {
+    return `
+      padding: 15px 30px;
+    `
+  }
+
+  // if(variant === "subtle") {
+  //   return `
+  //     color: #27262c !important;
+  //   `
+  // }
 }
 
 /**
