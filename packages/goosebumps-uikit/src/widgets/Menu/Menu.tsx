@@ -28,7 +28,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: right;
   width: 100%;
-  height: 130px;
+  height: 145px;
   background: transparent;
   // border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   border-bottom: 1px solid #1e4150;
@@ -59,7 +59,7 @@ const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
   left: 0;
   transition: top 0.2s;
   // height: ${({ height }) => `${height}px`};
-  height: 130px;
+  height: 145px;
   width: 100%;
   z-index: 20;
   ${({theme}) => theme.mediaQueries.sm} {
@@ -93,10 +93,23 @@ const SearchContainer = styled.div`
   margin-left: 0px;
   padding-left: 30px;
   padding-right: 10px;
-  border-left: 1px solid #2d3551;
+  padding-top: 10px;
+  border: none;
+
+  ${({theme}) => theme.mediaQueries.sm} {
+    padding-top: 0px;
+    border-left: 1px solid #2d3551;
+  }
+
   ${({theme}) => theme.mediaQueries.md} {
+    padding-top: 0px;
     margin-left: 30px;
     padding-right: 10px;
+    border-left: 1px solid #2d3551;
+  }
+  ${({theme}) => theme.mediaQueries.lg} {
+    padding-top: 0px;
+    border-left: 1px solid #2d3551;
   }
 `
 
@@ -174,7 +187,7 @@ const Menu: React.FC<NavProps> = ({
       <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
         {/* {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>} */}
         <StyledNav>
-          <LogoSearchContainer flex={8}>
+          <LogoSearchContainer flex={8} flexDirection={["column", "column", "row"]}>
             <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
             <SearchContainer>
               <SearchGroup startItem={searchItem} endIcon={<Search width="24px"/>}>
@@ -183,7 +196,7 @@ const Menu: React.FC<NavProps> = ({
             </SearchContainer>
             {(!isMobile && !isTablet) && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="25px"/>}
           </LogoSearchContainer>
-          <Flex alignItems="center" height="100%" flex={2} justifyContent="end">
+          <Flex alignItems="center" height="100%" flex={2} justifyContent="end" pb={["10px", "10px", "0px"]}>
             {/* {!isMobile && (
               <Box mr="12px">
                 <CakePrice cakePriceUsd={cakePriceUsd} />
@@ -198,8 +211,8 @@ const Menu: React.FC<NavProps> = ({
                 color="textSubtle"
                 hideLanguage
               />
-            </Box> 
-            {globalMenu} */} {userMenu}
+            </Box> */}
+            {globalMenu}  {userMenu}
           </Flex>
         </StyledNav>
       </FixedContainer>
