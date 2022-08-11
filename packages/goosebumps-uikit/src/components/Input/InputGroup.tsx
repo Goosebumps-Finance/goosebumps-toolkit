@@ -45,6 +45,7 @@ const InputIcon = styled.div<{ scale: Scales; isEndIcon?: boolean }>`
   height: 100%;
   position: absolute;
   top: 0;
+  cursor: pointer;
 
   ${({ isEndIcon, scale }) =>
     isEndIcon

@@ -118,6 +118,12 @@ const SearchGroup = styled(InputGroup) `
   min-width: 200px;
 `
 
+const StyledSearch = styled(Search)`
+  &:hover {
+    fill: #9894a0;
+  }
+`
+
 const Menu: React.FC<NavProps> = ({
   userMenu,
   banner,
@@ -190,7 +196,7 @@ const Menu: React.FC<NavProps> = ({
           <LogoSearchContainer flex={8} flexDirection={["column", "column", "row"]}>
             <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
             <SearchContainer>
-              <SearchGroup startItem={searchItem} endIcon={<Search width="24px"/>}>
+              <SearchGroup startItem={searchItem} endIcon={<StyledSearch width="24px" />}>
                 <Input type="text" placeholder="Enter token or wallet address" value={searchKey} onChange={setSearchKey}/>
               </SearchGroup>
             </SearchContainer>
