@@ -188,6 +188,13 @@ const Menu: React.FC<NavProps> = ({
   const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
   const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
 
+  const onSearchInput = (event:any) => {
+    if(event.key === "Enter") {
+      event.preventDefault();
+      setSearchKey(searchKey);
+    }
+  }
+
   return (
     <Wrapper>
       <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
@@ -196,8 +203,8 @@ const Menu: React.FC<NavProps> = ({
           <LogoSearchContainer flex={8} flexDirection={["column", "column", "row"]}>
             <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
             <SearchContainer>
-              <SearchGroup startItem={searchItem} endIcon={<StyledSearch width="24px" />}>
-                <Input type="text" placeholder="Enter token or wallet address" value={searchKey} onChange={setSearchKey}/>
+              <SearchGroup startItem={searchItem} endIcon={<StyledSearch width="24px" />} onEndClick={() => {setSearchKey(searchKey)}}>
+                <Input type="text" placeholder="Enter token or wallet address" value={searchKey} onChange={(e) => setSearchKey(e.target.value)} onKeyPress={onSearchInput}/>
               </SearchGroup>
             </SearchContainer>
             {(!isMobile && !isTablet) && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="25px"/>}

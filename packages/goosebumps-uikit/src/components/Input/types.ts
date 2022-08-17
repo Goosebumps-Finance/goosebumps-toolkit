@@ -22,4 +22,5 @@ export interface InputGroupProps extends SpaceProps {
   endIcon?: ReactElement;
   children: JSX.Element;
   style?: any;
+  onEndClick?: any;
 }

@@ -65,7 +65,7 @@ const ItemGroup = styled.div`
   border-right: 1px solid #52555c;
 `
 
-const InputGroup = ({ scale = scales.MD, startIcon, startItem, endIcon, children, ...props }: InputGroupProps): JSX.Element => (
+const InputGroup = ({ scale = scales.MD, startIcon, startItem, endIcon, children, onEndClick, ...props }: InputGroupProps): JSX.Element => (
   <StyledInputGroup
     scale={scale}
     width="100%"
@@ -78,7 +78,7 @@ const InputGroup = ({ scale = scales.MD, startIcon, startItem, endIcon, children
     {startItem && <ItemGroup>{startItem}</ItemGroup>}
     {cloneElement(children, { scale })}
     {endIcon && (
-      <InputIcon scale={scale} isEndIcon>
+      <InputIcon scale={scale} isEndIcon onClick={onEndClick}>
         {endIcon}
       </InputIcon>
     )}
