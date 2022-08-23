@@ -88,7 +88,7 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 
 const SearchContainer = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
   align-items: center;
   margin-left: 0px;
   padding-left: 30px;
