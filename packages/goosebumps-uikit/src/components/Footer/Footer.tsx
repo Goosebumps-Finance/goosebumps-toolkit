@@ -120,22 +120,22 @@ const MenuItem: React.FC<FooterProps> = ({
                       <ul className="socil-link">
                           <li>
                               <a href="https://www.instagram.com/empiretoken/" target="_blank" rel="noopener noreferrer">
-                                  <i className="fa fa-instagram"></i>
+                                  <i className="fab fa-instagram"></i>
                               </a>
                           </li>
                           <li>
                               <a href="https://twitter.com/RealEmpireToken" target="_blank" rel="noopener noreferrer">
-                                  <i className="fa fa-twitter"></i>
+                                  <i className="fab fa-twitter"></i>
                               </a>
                           </li>
                           <li>
                               <a href="https://t.me/empiretokenworld" target="_blank" rel="noopener noreferrer">
-                                  <i className="fa fa-telegram"></i>
+                                  <i className="fab fa-telegram"></i>
                               </a>
                           </li>
                           <li>
                               <a href="https://www.youtube.com/channel/UCYSHk8YsR1jxNR64ezx6q3Q" target="_blank" rel="noopener noreferrer">
-                                  <i className="fa fa-youtube"></i>
+                                  <i className="fab fa-youtube"></i>
                               </a>
                           </li>
                       </ul>
