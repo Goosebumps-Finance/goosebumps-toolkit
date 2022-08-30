@@ -9,6 +9,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   isActive = false,
   variant = "default",
   statusColor,
+  menuIndex = -1,
   ...props
 }) => {
   const itemLinkProps: unknown = href
@@ -20,7 +21,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         as: "div",
       };
   return (
-    <StyledMenuItemContainer $isActive={isActive} $variant={variant}>
+    <StyledMenuItemContainer $isActive={isActive} $variant={variant} menuIndex={menuIndex}>
       <StyledMenuItem {...itemLinkProps} $isActive={isActive} $variant={variant} $statusColor={statusColor} {...props}>
         {children}
       </StyledMenuItem>

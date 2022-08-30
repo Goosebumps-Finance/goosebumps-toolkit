@@ -34,7 +34,7 @@ export const links: MenuItemsType[] = [
     ]
   },
   {
-    label: "AAA",
+    label: "Portfolio Tracker",
     href: "/aaa",
     items: [ ]
   }, 

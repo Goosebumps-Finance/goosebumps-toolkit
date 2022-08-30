@@ -9,13 +9,13 @@ import { MenuItemsProps } from "./types";
 const MenuItems: React.FC<MenuItemsProps> = ({ items = [], activeItem, activeSubItem, ...props }) => {
   return (
     <Flex {...props}>
-      {items.map(({ label, items: menuItems = [], href, icon = "" }) => {
+      {items.map(({ label, items: menuItems = [], href, icon = "" }, index) => {
         const statusColor = menuItems?.find((menuItem) => menuItem.status !== undefined)?.status?.color;
         const isActive = activeItem === href;
         const linkProps = isTouchDevice() && menuItems && menuItems.length > 0 ? {} : { href };
         return (
           <DropdownMenu key={`${label}#${href}#${icon}`} items={menuItems} py={1} activeItem={activeSubItem}>
-            <MenuItem {...linkProps} isActive={isActive} statusColor={statusColor}>
+            <MenuItem {...linkProps} isActive={isActive} statusColor={statusColor} menuIndex={index}>
               {label || <IconComponent iconName={icon} color={isActive ? "textSubtle" : "textSubtle"} />}
             </MenuItem>
           </DropdownMenu>

@@ -194,7 +194,6 @@ const Menu: React.FC<NavProps> = ({
       setSearchKey(searchKey);
     }
   }
-
   return (
     <Wrapper>
       <FixedContainer showMenu={showMenu} height={totalTopMenuHeight}>
