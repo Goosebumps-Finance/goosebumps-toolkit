@@ -20,24 +20,53 @@ export const status = {
 
 export const links: MenuItemsType[] = [
   {
-    label: "Test",
-    href: "/test",
-    items: [
-      {
-        label: "Swap",
-        href:"/test"
-      },
-      {
-        label: "Liquidity",
-        href:"/ttt"
-      }
-    ]
+    label: "Home",
+    href: "/",
+    items: [],
   },
   {
     label: "Portfolio Tracker",
-    href: "/aaa",
-    items: [ ]
-  }, 
+    href: "/portfolio-tracker",
+    items: []
+  },
+  {
+    label: "Charts",
+    href: "/charts",
+    items: [],
+  },
+  {
+    label: "Stake",
+    href: "/stake",
+    items: [
+      {
+        label: "Staking",
+        href: "/stake",
+      },
+      {
+        label: "Farms",
+        href: "/farms",
+      },
+    ],
+  },
+  {
+    label: 'DEX',
+    href: '/swap',
+    items: [
+      {
+        label: 'Exchange',
+        href: '/swap',
+      },
+      {
+        label: 'Liquidity',
+        href: '/liquidity',
+      },
+    ],
+  },
+  {
+    label: 'Bridge',
+    href: '/bridge',
+    items: [],
+  },
   {
     label: "Trade",
     href: "/swap",
@@ -45,15 +74,15 @@ export const links: MenuItemsType[] = [
     items: [
       {
         label: "Exchange",
-        href: "https://exchange.goosebumps.finance",
+        href: "https://goosebumps.finance",
       },
       {
         label: "Liquidity",
-        href: "https://exchange.goosebumps.finance/#/pool",
+        href: "https://goosebumps.finance/pool",
       },
       {
         label: "Charts",
-        href: "https://exchange.goosebumps.finance/#/charts",
+        href: "https://goosebumps.finance/charts",
         iconName: "Chart",
         isMobileOnly: true,
       },
