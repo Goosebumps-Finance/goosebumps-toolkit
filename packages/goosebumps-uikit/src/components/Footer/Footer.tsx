@@ -109,7 +109,7 @@ const MenuItem: React.FC<FooterProps> = ({
                   <div className="single-footer-widget">
                       <img src="/images/goosebumps/logo.png" alt="Goosebumps" />
 
-                      <p>Goosebumps powered by Empire Token is a decentralized exchange with a unique portfolio tracking and charting system.</p>
+                      <p>Goosebumps powered by Empire Token is a fully decentralized exchange and portfolio tracker in one platform, integrated with a built-in IDO Launchpad.</p>
                   </div>
               </div>
 
